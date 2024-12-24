@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <title> Calculator</title>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <input type="text" placeholder="Enter" id="texts">
+        <div id="input">
+
+        </div>
+        <br>
+        <span>
+            <button>Clear</button>
+            <button>(</button>
+            <button>)</button>
+            <button id="op%">%</button>
+        </span>
+        <br>
+        <span>
+            <button id="num7">7</button>
+            <button id="num8">8</button>
+            <button id="num9">9</button>
+            <button id="op/">/</button>
+        </span>
+        <br>
+        <span>
+            <button id="num4">4</button>
+            <button id="num5">5</button>
+            <button id="num6">6</button>
+            <button id="op*">*</button>
+        </span>
+        <br>
+        <span>
+            <button id="num1">1</button>
+            <button id="num2">2</button>
+            <button id="num3">3</button>
+            <button id="op-">-</button>
+        </span>
+        <br>
+        <span>
+            <button id="num0">0</button>
+            <button>.</button>
+            <button id="op+">+</button>
+            <button id="op=">=</button>
+        </span>
+        <script>
+            let operation="",previousValue="",currentValue='';
+            let input = document.getElementById('input');
+            let num1 = document.getElementById('num1');
+            let num2 = document.getElementById('num2');
+            let num3 = document.getElementById('num3');
+            let num4 = document.getElementById('num4');
+            let num5 = document.getElementById('num5');
+            let num6 = document.getElementById('num6');
+            let num7 = document.getElementById('num7');
+            let num8 = document.getElementById('num8');
+            let num9 = document.getElementById('num9');
+            let num0 = document.getElementById('num0');
+
+
+
+            let opEqual = document.getElementById('op=');
+            let opPlus = document.getElementById('op+');
+            let opMinus = document.getElementById('op-');
+            let opMul = document.getElementById('op*');
+            let opDiv = document.getElementById('op/');
+            let opMod = document.getElementById('op%');
+
+
+
+
+
+            let texts = document.getElementById('texts');
+            num1.addEventListener('click',(event)=>{
+                addtext(num1.innerText)
+            })
+            num0.addEventListener('click',(event)=>{
+                addtext(num0.innerText)
+            })
+            num2.addEventListener('click',(event)=>{
+                addtext(num2.innerText)
+            })
+            num3.addEventListener('click',(event)=>{
+                addtext(num3.innerText)
+            })
+            num4.addEventListener('click',(event)=>{
+                addtext(num4.innerText)
+            })
+            num5.addEventListener('click',(event)=>{
+                addtext(num5.innerText)
+            })
+            num6.addEventListener('click',(event)=>{
+                addtext(num6.innerText)
+            })
+            num7.addEventListener('click',(event)=>{
+                addtext(num7.innerText)
+            })
+            num8.addEventListener('click',(event)=>{
+                addtext(num8.innerText)
+            })
+            num9.addEventListener('click',(event)=>{
+                addtext(num9.innerText)
+            })
+            function addtext(para){
+                currentValue+=para;
+                texts.value =currentValue;
+
+            }
+
+            opEqual.addEventListener('click',(event)=>{
+                calculateResult();
+            })
+
+            opPlus.addEventListener('click',(event)=>{
+                plusOperation()
+            })
+            opMinus.addEventListener('click',(event)=>{
+                MinusOperation()
+            })
+            opMul.addEventListener('click',(event)=>{
+                mulOperation()
+            })
+            opDiv.addEventListener('click',(event)=>{
+                divOperation()
+            })
+            opMod.addEventListener('click',(event)=>{
+                modOperation()
+            })
+
+
+
+
+
+            function plusOperation(){
+                previousValue = currentValue; // Store the first number
+                currentValue = ""; // Reset for the second number
+                operation = "+"; // Set the operation type
+                texts.value = previousValue; // Clear the input field
+            }
+            function modOperation(){
+                previousValue = currentValue; // Store the first number
+                currentValue = ""; // Reset for the second number
+                operation = "/"; // Set the operation type
+                texts.value = previousValue; // Clear the input field
+            }
+
+            function MinusOperation(){
+                previousValue = currentValue; // Store the first number
+                currentValue = ""; // Reset for the second number
+                operation = "-"; // Set the operation type
+                texts.value = previousValue; // Clear the input field
+            }
+            function mulOperation(){
+                previousValue = currentValue; // Store the first number
+                currentValue = ""; // Reset for the second number
+                operation = "*"; // Set the operation type
+                texts.value = previousValue; // Clear the input field
+            }
+            function divOperation(){
+                previousValue = currentValue; // Store the first number
+                currentValue = ""; // Reset for the second number
+                operation = "/"; // Set the operation type
+                texts.value = previousValue; // Clear the input field
+            }
+
+            function calculateResult() {
+                if (operation === "+") {
+                    let result = parseFloat(previousValue) + parseFloat(currentValue); // Perform addition
+                    texts.value = result; // Display the result
+                    currentValue = result;
+                }
+                else if (operation === "-") {
+                    let result = parseFloat(previousValue) - parseFloat(currentValue); // Perform addition
+                    texts.value = result; // Display the result
+                    currentValue = result;
+                }
+                else if (operation === "*") {
+                    let result = parseFloat(previousValue) * parseFloat(currentValue); // Perform addition
+                    texts.value = result; // Display the result
+                    currentValue = result;
+                }
+                else if (operation === "/") {
+                    let result = parseFloat(previousValue) / parseFloat(currentValue); // Perform addition
+                    texts.value = result; // Display the result
+                    currentValue = result;
+                }
+                else if (operation === "%") {
+                    let result = parseFloat(previousValue) / parseFloat(currentValue); // Perform addition
+                    texts.value = result; // Display the result
+                    currentValue = result;
+                }
+}
+        </script>
+    </body>
+</html>
